@@ -1,0 +1,41 @@
+body{
+    height: 100%;
+    width: 100%;
+    background: grey;
+}
+
+
+
+#squares{
+    width: 510px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    left: 35%;
+    top: 25%;
+    
+}
+
+.square{
+    border: 1px black solid;
+    height: 150px;
+    width: 150px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 5px;
+}
+
+.square:hover{
+    background: lightblue;
+}
+
+.header{
+    text-align: center;
+    margin-right: 100px;
+    margin-top: 75px;
+}
