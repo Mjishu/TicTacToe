@@ -75,6 +75,7 @@ for(let i=0; i<GameBoard.gameBoardArr.length; i++){
 
     square.addEventListener("click", () => {
         GameBoard.updateGameBoard(i)
+        const winner = GameBoard.checkWin();
         
         console.log(i)
         console.log(GameBoard.gameBoardArr)
@@ -87,16 +88,27 @@ for(let i=0; i<GameBoard.gameBoardArr.length; i++){
         const winner = GameBoard.checkWin();
 
         if (winner){
-            alert("Player " + winner + " wins")
-            //add logic to clear board
-            clearBoard()
+            const win = document.createElement("h3");
+            win.innerHTML = winner + " Wins!";
+            const winBtn = document.createElement("button");
+            winBtn.innerHTML = "Play Again";
+            winBtn.addEventListener("click", () => {
+                clearBoard(win,winBtn, null,null)
+            });
             
-
+            document.body.appendChild(win);
+            document.body.appendChild(winBtn);
         }
         else if (!GameBoard.gameBoardArr.includes("")){
-            //add logic to clear board
-            alert("its a tie")
-            clearBoard()
+            const tie = document.createElement("h3");
+            tie.innerHTML = "It's a tie better luck next time";
+
+            const tieBtn = document.createElement("button");
+            tieBtn.innerHTML = "Play Again";
+            tieBtn.addEventListener("click", () => {clearBoard(null,null,tie, tieBtn)});
+
+            document.body.appendChild(tie);
+            document.body.appendChild(tieBtn);
         }
     })
 
@@ -106,10 +118,19 @@ for(let i=0; i<GameBoard.gameBoardArr.length; i++){
 
 // TOdo  adding announcement, then it should be done besides html
 
-const clearBoard = () =>{
+function clearBoard(win, winBtn, tie,tieBtn){
     for(i=0; i< GameBoard.gameBoardArr.length; i++){
         let square = document.getElementById("square_" + i)
         square.innerHTML = ""
         GameBoard.gameBoardArr[i] = ''
+        
+    }
+    if (win){
+        document.body.removeChild(win)
+        document.body.removeChild(winBtn)
+    }
+    if (tie){
+        document.body.removeChild(tie)
+        document.body.removeChild(tieBtn)
     }
 }

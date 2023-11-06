@@ -28,14 +28,37 @@ body{
     text-align: center;
     font-size: 40px;
     border-radius: 5px;
+    box-shadow: 0 0 5px rgb(102, 102, 102);
 }
 
 .square:hover{
-    background: lightblue;
+    background: darkgray;
 }
 
 .header{
     text-align: center;
     margin-right: 100px;
     margin-top: 75px;
+}
+h4{
+    text-align: center;
+    margin-right:100px ;
+}
+
+h3{
+    text-align: center;
+}
+
+button{
+    margin-left: 45%;
+    margin-top: 550px;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid slategrey;
+}
+
+button:hover{
+    background: rgb(134, 158, 182);
+    color: aliceblue;
 }
